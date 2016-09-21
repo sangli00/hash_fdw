@@ -124,7 +124,7 @@ Datum hash_fdw_validator(PG_FUNCTION_ARGS)
 	ListCell *optionCell = NULL;
 //	char *column_key = NULL;
 //	char *hash_idx = NULL;
-	if(optionList->length != ValidOptionCount ){
+	if(optionList != NULL &&  optionList->length != ValidOptionCount ){
 	 ereport(ERROR,
                     (errcode(ERRCODE_FDW_INVALID_OPTION_NAME), errmsg("invalid option size need equal %d", ValidOptionCount),
                     errhint("Valid options in this context are: key 'columnName',hash_idx = [1-%d]",hash_idx)));
@@ -582,24 +582,7 @@ hashExecForeignDelete(EState *estate,
                                            ResultRelInfo *resultRelInfo,
                                            TupleTableSlot *slot,
                                            TupleTableSlot *planSlot){
-	/*Datum           value ;
-	bool		isNull;
-	char	*x;
-	List   *rtable; 
-	RangeTblEntry *rt;
-	HashFdwOptions *option;	
-	
-	rtable = estate->es_plannedstmt->rtable;
-	rt = lfirst(rtable->head);
 
-	option = HashGetOptions(rt->relid);
-	
-	value = ExecGetJunkAttribute(planSlot, 1, &isNull);
-*/
-	//HashFdwModifyState *fmstate = (HashFdwModifyState *) resultRelInfo->ri_FdwState;
-	//PgFdwModifyState *fmstate = (PgFdwModifyState *) resultRelInfo->ri_FdwState;
-	//value = ExecGetJunkAttribute(planSlot, 1, &isNull);
-	
 }
 
 

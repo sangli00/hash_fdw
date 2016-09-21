@@ -3,12 +3,6 @@
 # * Makefile
 # *
 # *
-# *
-# * Copyright (c) 2013, Konstantin Knizhnik, ww.garret.ru
-# * Author: Konstantin Knizhnik <knizhnik@garret.ru>
-# *
-# *	  $Id: Makefile 28 2013-10-10 17:18:31Z lptolik $
-# *
 # *-------------------------------------------------------------------------
 
 MODULE_big = hash_fdw
