@@ -1,0 +1,5 @@
+# imcs extension
+comment = 'hash_fdw'
+default_version = '1.0'
+module_pathname = '$libdir/hash_fdw'
+relocatable = true

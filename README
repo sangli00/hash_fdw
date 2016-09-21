@@ -1,0 +1,3 @@
+Foreign Data Wrapper for HASH TABLE
+===============================
+only build postgres 9.5.3
