@@ -1,3 +1,42 @@
 Foreign Data Wrapper for HASH TABLE
 ===============================
+only build postgres 9.5.3
+
+
+
+1. Installation
+
+$ export PATH=/usr/local/pgsql/bin/:$PATH  
+
+make 
+
+make install
+
+
+2. Usage
+
+##options
+"key" is this table primary , value just only this table.
+hash_idx default size is 8,max size is 16.
+
+
+create extension hash_fdw ;
+
+create server hash_server foreign data wrapper hash_fdw ;
+
+create foreign table my_hash(id bigint,name text,age int) server hash_server options(key 'id',hash_idx '1');
+
+postgres=# insert into my_hash select 1,'AnAn',26;
+postgres=# insert into my_hash select 2,'L.Sang',27;
+
+postgres=# select * from my_hash ;
+ id |  name  | age 
+----+--------+-----
+  1 | AnAn   |  26
+  2 | L.Sang |  27
+(2 rows)
+
+
+
+
 
